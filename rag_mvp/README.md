@@ -89,8 +89,4 @@ rag_mvp/
 └── README.md
 ```
 
-## Próximos passos (Projeto 2)
 
-- Interface web com Gradio
-- Métricas de qualidade do retrieval
-- Suporte a múltiplos documentos simultâneos
