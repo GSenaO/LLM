@@ -1,0 +1,79 @@
+Ideias: Seria interessante criar um pedaço de código que faça exatamente esse processo  que gostaria de explicar.
+
+
+ENGENHARIA DE PROMPT: CRIANDO PROMPTS EFICAZES PARA IA GENERATIVA.
+
+------------------ 1. Conceitos iniciais ------------------
+Embeddings: É a "tradução" numérica das palavras que fazem com que as máquinas consigam entender quais nossa linguagem natural. Ela possibilitou as "operações" de palavras como REI - Homem  + Mulher = Rainha e outros exemplos que fossem mais fáceis de conseguir prever qual seria a próxima palavra.
+
+Duvida: Wich the difference between Embeddings and Tokenizations?
+Answer: Tokenization breaks text into smaller units, while embedding converts those units into meaningful numerical vectors
+
+Temperatura: Conceito utilizado para ajustar o nível de "criatividade" do modelo. Ele varia de um range de 0 à 2.0 no qual quanto mais próximo do 0 menor será a variação das escolhas, resultando quase sempre na palavra com maior probabilidade de escolha. Temperaturas muito altas podem resultar em maiores alucinações do nosso modelo, sendo então necessário um maior cuidado. No livro AI engineering da Chop ..., existe a recomendação de utilizar próximo da casa dos 0.7 para ser um modelo consistente.
+
+Tokenização: Processo de divisão de texto para unidades menores. É uma forma de separar grandes textos em palavras, ou até mesmo, pedaços de palavras.
+
+Então, resumindo: tokenização é quebrar o texto em pedaços, enquanto embedding é dar significado matemático a esses pedaços.
+--------------------------------------------------------------
+
+------------------ 2. Engenharia de Prompts ------------------
+
+O que é?
+São tecnicas utilizadas para conseguir uma melhor respostas do modelo.
+
+Dicas:
+1. Ter clareza ao dar as instruções;
+2. Dividir tarefas complexas em subtarefas menores
+3. Pedir para  o modelo explicar seus passos antes de das a resposta
+4. Pedir para o modelo dar justificativas de suas respostas
+5. Gerar várias respostas diferentes e pedir para o mesmo escolher a melhor.
+--------------------------------------------------------------
+
+------------------ 3. Few-shot Prompt ------------------
+
+Zero-shot: Fazer um pedido sem dar nenhum exemplo para ele conseguir se basear sua resposta.
+
+Few-shot: Dar exemplos sobre a área de conhecimento que sua pergunta principal está relacionada e que será necessário utilizar para conseguir responde-la.
+Você pode dar perguntas e respostas sobre problemas similares para você conseguir guiar a linha de raciocínio do modelo.
+
+Quando utilizar Few-Shot Prompting
+	- Quando a tarefa requer alta precisão;
+	- Geração de textos com um formato definido;
+	- Em categorizações onde há muita variedade;
+	- Tarefas com regras complexas.
+Quando utilizar Zero-Shot Prompting
+	- Exploração inicial de novas tarefas, que ainda não dispõem de exemplos;
+	- Quando você quer que o modelo generalize;
+	- Em tarefas simples e bem definidas, como categorização de spams óbvios, por exemplo;
+	- Situações que exigem respostas rápidas em detrimento de precisão;
+	- Quando fornecer exemplos específicos pode introduzir viés indesejado.
+--------------------------------------------------------------
+------------------ 4. Chain of thought Prompt ------------------
+
+O que é?
+Técnica utilizada para o modelo dividir a pergunta em pequenos passos de pensamento que se conectam, fazendo com que nós entendamos a cadeia de pensamento completa utilizada para formular a reposta final.
+
+Ele é um complemento ao Few-shoting, pois, você dá o exemplo já com a descrição da linha de raciocínio.
+
+--------------------------------------------------------------
+------------------ 5. Mais técnicas de Prompt ------------------
+
+Least-to-most prompting:
+
+É a técnica de pedir para o modelo decompor o problema em pequenos sub-problemas para conseguir chegar na resposta final. Pode melhorar bastante a resposta dos resultados, no entanto, pode aumentar significantemente a quantidade de tokens utilizados.
+
+Chain-of-verification: Utilizado para verificar se os fatos respondidos pelo modelo são, de fato, verdadeiros.
+
+1. Prompt e respostas inicias
+2. Geração das perguntas de verificação
+3. Execução das verificações
+4. Geração da reposta final verificada.
+
+--------------------------------------------------------------
+
+------------------ 6. Self-Consistency ------------------
+O que é?
+Basicamente, você pergunta uma série de vezes a mesma coisa para o modelo e escolhe a opção que mais se repetiu dado que ele tem uma taxa de acerto maior que 50%.
+
+
+--------------------------------------------------------------
