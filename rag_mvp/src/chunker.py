@@ -44,7 +44,7 @@ def criar_chunks(texto: str, tamanho: int = 500, sobreposicao: int = 50) -> list
     """
 
     # Divide por parágrafo primeiro
-    paragrafos = [p.strip() for p in texto.split("\n\n") if p.strip()]
+    paragrafos = [p.strip() for p in texto.split("\n") if p.strip()]
     
     chunks = []
     chunk_atual = ""
